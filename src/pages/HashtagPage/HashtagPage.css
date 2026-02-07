@@ -1,0 +1,78 @@
+/* HashtagPage.css */
+
+/* Reset defaults */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', 'Roboto', sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* Navbar at the top */
+.navbar {
+  width: 100%;
+  background-color: #1e1e1e;
+  color: #fff;
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Container for AI summary and posts */
+.ai-summaries,
+.posts {
+  height: calc(100vh - 80px); /* full height minus navbar */
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #fff;
+}
+
+/* Main layout: two columns with divider */
+.ai-summaries + .posts,
+.posts + .ai-summaries {
+  border-left: 2px solid #ddd; /* vertical divider */
+}
+
+/* Flex wrapper for the columns */
+.ai-summaries,
+.posts {
+  flex: 1; /* equal width */
+}
+
+/* Scrollable container for posts */
+.scrolling-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Post header */
+.scrolling-posts h1 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+/* TikTok embed spacing */
+.scrolling-posts iframe,
+.scrolling-posts .tiktok-embed {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+
+.ai-summaries,
+.posts {
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
+}
