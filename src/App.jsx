@@ -2,11 +2,14 @@ import { useState } from "react";
 import { auth } from "./firebase.jsx";
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 
+import LandingPage from "./landing-page.jsx";
+
 export default function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLogin, setIsLogin] = useState(true); // toggle login/signup
+  const [user, setUser] = useState(null); // Track logged-in user
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,17 +19,21 @@ export default function App() {
       if (isLogin) {
         // LOGIN
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        alert(`Logged in as ${userCredential.user.email}`);
+        setUser(userCredential.user);
       } else {
         // SIGNUP
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        alert(`User created: ${userCredential.user.email}`);
+        setUser(userCredential.user);
       }
     } catch (err) {
       console.error(err);
       setError(err.message);
     }
   };
+
+  if (user) {
+    return <LandingPage />;
+  }
 
   return (
     <div style={{ maxWidth: "300px", margin: "50px auto", textAlign: "center" }}>
@@ -57,9 +64,9 @@ export default function App() {
         onClick={() => setIsLogin(!isLogin)}
         style={{ marginTop: "10px", background: "transparent", border: "none", color: "blue", cursor: "pointer" }}
       >
-        {isLogin ? "Create new account" : "Already have an account? Login"}
+        {isLogin ? "Switch to " + (isLogin ? "Sign Up" : "Login")}
       </button>
     </div>
   );
 }
-``
+
