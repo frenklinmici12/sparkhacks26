@@ -1,26 +1,17 @@
-/* MainPage.css */
-
-/* General page styling */
-body, html {
+body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background-color: #ffffff; /* white background */
+    background-color: #ffffff; 
     color: #333;
 }
 
-h2 {
-    margin: 20px 0 10px 20px;
-    font-size: 24px;
-}
-
-/* Carousel container */
 .carousel {
     display: flex;
     overflow-x: auto;
     padding: 20px;
-    gap: 16px; /* space between cards */
-    scroll-behavior: smooth; /* smooth scrolling */
+    gap: 16px; 
+    scroll-behavior: smooth;
 }
 
 .carousel::-webkit-scrollbar {
@@ -32,26 +23,9 @@ h2 {
     border-radius: 4px;
 }
 
-.carousel::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-/* Optional: hide scrollbar on Firefox */
-.carousel {
-    scrollbar-width: thin;
-    scrollbar-color: #ccc transparent;
-}
-
-/* Netflix-style horizontal cards */
+/*make them not shrink*/
 .carousel .hashtag-card {
-    flex: 0 0 auto; /* prevents shrinking */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Hover effect for cards in carousel */
-.carousel .hashtag-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    flex: 0 0 auto; 
 }
 
 /* Responsive adjustments */
@@ -67,21 +41,15 @@ h2 {
     }
 }
 
-/* MainPage h2 styling - clean pastel style */
 h2 {
     margin: 20px 0 10px 20px;
     font-size: 24px;
     font-weight: 600;
-    color: #ff7eb9; /* soft pastel pink */
-    /* subtle underline instead of background gradient */
+    color: #ff7eb9; 
     border-bottom: 3px solid #ffd6e0;
     display: inline-block;
-    padding-bottom: 4px;
-    letter-spacing: 0.5px;
-}
-
-/* Optional: small hover effect */
-h2:hover {
-    color: #ff94c2;
-    transition: color 0.3s ease;
+    letter-spacing: 2px;
+    padding: 15px;
+    padding-bottom: 5px;
+   /* background-color: */
 }
